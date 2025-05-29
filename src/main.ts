@@ -2,10 +2,9 @@ import "reflect-metadata";
 import { Container } from "typedi";
 import { AppointmentService } from "./appointments/AppointmentService";
 import { EmailService } from "./notifications/EmailService";
-import { NotificationService } from "./notifications/NotificationService";
+import { SMSService } from "./notifications/SMSService";
 
-// Replace SMS with Email service
-Container.set(NotificationService, new EmailService());
+Container.set(SMSService, new EmailService()); // Swapping SMS with Email
 
 const service = Container.get(AppointmentService);
 
